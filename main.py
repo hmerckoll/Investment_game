@@ -6,6 +6,7 @@ Created on Thu Nov 10 11:56:39 2022
 """
 
 from datapull import datapull
+from users import Users
 
 df = datapull()
 
