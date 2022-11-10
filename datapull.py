@@ -8,9 +8,14 @@ Created on Thu Nov 10 12:38:15 2022
 import requests
 import pandas as pd
 
-def datapull():
+stocks = ['IBM', 'MSFT']
+dataframes ={}
 
-    response = requests.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&outputsize=full&apikey=demo")
+def datapull(input_stock):
+        
+    URL = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={input_stock}&interval=5min&outputsize=full&apikey=demo"
+    
+    response = requests.get(URL)
     
     if response.status_code != 200:
         raise ValueError("Could not retrieve data, code:", response.status_code)
@@ -30,8 +35,11 @@ def datapull():
     
     #close_per_day = df.close.resample('B').last()
     #close_per_day.plot()
+    
+    dataframes[input_stock] = df
+    #print(dataframes[stock])
+return dataframes
+        
+#datapull()
 
-    return df
 
-#df = datapull()
-#print(df)
