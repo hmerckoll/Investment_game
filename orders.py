@@ -8,10 +8,10 @@ Created on Thu Nov 10 12:44:32 2022
 from users import Users
 
 class Orders():
-    def __init__(self, user):
-        self.name = user.name
+    def __init__(self, users: Users):
+        self.user = users
         
     def buy(self, quantity, stock):
         self.quantity = quantity
         self.stock = stock
-        return quantity*stock
+        self.user.balance -= self.quantity*1

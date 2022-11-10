@@ -12,13 +12,21 @@ from orders import Orders
 #df = datapull()
 
 if __name__ == '__main__':        
-        bruker1 = Users('dong', 100)
-        print(bruker1.cash)
         
+        #Definere bruker
+        bruker1 = Users('dong', 100)
+        
+        #Printer initiell balance
+        print(bruker1.balance)
+        
+        #Knytter en ordre til en bruker
         ordre1 = Orders(bruker1)
         
+        #Bruker kjøper 1000 aksjer 
         ordre1.buy(1000,'APPL')
-        print(bruker1.quantity)
+        
+        #Printer gjenværende balanse
+        print(bruker1.balance)
         
         #if bruker1.name == ordre1.name:
          #   print('Dong har apple')
