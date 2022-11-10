@@ -5,4 +5,9 @@ Created on Thu Nov 10 11:56:39 2022
 @author: hmerckoll
 """
 
-#testfil
+from datapull import datapull
+
+df = datapull()
+
+if __name__ == '__main__':
+    print(df)
