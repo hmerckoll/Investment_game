@@ -36,9 +36,7 @@ def datapull(input_stock):
     #close_per_day = df.close.resample('B').last()
     #close_per_day.plot()
     
-    dataframes[input_stock] = df
-    #print(dataframes[stock])
-return dataframes
+    return df
         
 #datapull()
 
