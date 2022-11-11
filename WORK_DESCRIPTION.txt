@@ -24,3 +24,14 @@ Investment_Game_v1
 2) Brukeren får tilbudet om å kjøpe en valgfri aksje og deretter antall av aksjen
 3) Aksjedata hentes fra API (siste tilgjengelige sluttpris og dato), og brukerens portefølje oppdateres
 4) Print brukeren og brukerens portefølje og balanse
+5) User og buy som egne funksjoner
+
+Investment_Game_v2
+1) En bruker opprettes basert på navn
+1.1) Sjekk om brukeren eksisterer
+1.1.1) Hvis brukeren allerede eksisterer, hent balanse 
+1.1.2) Hvis brukeren ikke eksisterer, be om balanse
+2) Brukeren får tilbudet om å kjøpe en valgfri aksje og deretter antall av aksjen
+3) Aksjedata hentes fra API (siste tilgjengelige sluttpris og dato), og brukerens portefølje oppdateres
+4) Print brukeren og brukerens portefølje og balanse
+5) User og buy som egne funksjoner
