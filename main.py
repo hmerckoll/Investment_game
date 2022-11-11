@@ -9,9 +9,7 @@ from datapull import datapull
 from users import User
 from stock import Stock
 from functions import *
-#from functions 
-
-#df = datapull()
+from database import *
 
 users = {}
 
@@ -50,3 +48,5 @@ if __name__ == '__main__':
         #Oppdater bruker i databasen (users)
         users[user.user_name] = user
 #4) Print brukeren og brukerens portefølje og balanse
+
+        update_database(users)
