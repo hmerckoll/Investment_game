@@ -8,8 +8,11 @@ Created on Thu Nov 10 11:56:39 2022
 from datapull import datapull
 from users import User
 from stock import Stock
+#from functions 
 
 #df = datapull()
+
+users = {}
 
 if __name__ == '__main__':        
 #1) En bruker opprettes basert på tekstinnput
