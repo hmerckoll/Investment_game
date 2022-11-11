@@ -17,5 +17,5 @@ class Stock():
     
     def get_stock_purchasedate(self):
         self.stock_purchasedate = datapull(self.stock_name).index[0]
-        return self.stock_purchasedate
+        return str(self.stock_purchasedate)
     

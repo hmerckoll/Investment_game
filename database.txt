@@ -1,0 +1,1 @@
+{"k": 4, "Hans": {"user_name": "Hans", "balance": -656.0, "portfolio": {"IBM": {"Purchase_date": "2022-11-10 19:20:00", "Purchase_price": 141.23, "Purchase_quantity": 10, "Cost_price": 1412.3}, "MSFT": {"Purchase_date": "2022-11-10 20:00:00", "Purchase_price": 243.7, "Purchase_quantity": 1, "Cost_price": 243.7}}}}

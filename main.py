@@ -11,7 +11,7 @@ from stock import Stock
 from functions import *
 from database import *
 
-users = {}
+users = get_database()
 
 if __name__ == '__main__':        
 #1) En bruker opprettes basert på tekstinnput
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         username = input('Enter the username: ')
         #Sjekker om bruker finnes fra før. Hvis burker finnes hentes info fra bruker, hvis ikke opprettes ny bruker
         if username in users.keys():
-            user = users[username]
+            user = User(users[username]["user_name"], users[username]["balance"], users[username]["portfolio"])
         else:
             user = create_user(username)
             users[user.user_name] = user
@@ -38,6 +38,7 @@ if __name__ == '__main__':
         stock_purchase_date = stock.get_stock_purchasedate()
         
         if action == 'buy':
+            #4) Oppdatere brukeren og brukerens portefølje og balanse
             buy(user, user_stock_name, stock_price, stock_purchase_date, user_stock_quantity)
         else:
             continue
@@ -46,7 +47,15 @@ if __name__ == '__main__':
         print(user.balance)
         
         #Oppdater bruker i databasen (users)
-        users[user.user_name] = user
-#4) Print brukeren og brukerens portefølje og balanse
+        users[user.user_name] = user.__dict__
+        
+        # Sjekke om brukeren ønsker å fortsette
+        x = input("Ferdig? Y/N: ")
+        if x == "Y":
+            break
+        else:
+            continue
+        
 
-        update_database(users)
+#5) Oppdatere databasen
+    update_database(users)

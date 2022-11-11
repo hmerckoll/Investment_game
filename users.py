@@ -6,10 +6,10 @@ Created on Thu Nov 10 12:42:48 2022
 """
 
 class User():
-    def __init__(self, user_name, balance):
+    def __init__(self, user_name, balance, portfolio={}):
         self.user_name = user_name
         self.balance = balance
-        self.portfolio = {}
+        self.portfolio = portfolio
         
 #    def orders(self, quantity):
 #        self.quantity = quantity
