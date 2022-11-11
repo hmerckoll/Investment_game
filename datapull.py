@@ -39,5 +39,7 @@ def datapull(input_stock):
     return df
         
 
-#print(datapull('IBM'))
+#df = datapull('IBM')
 #print(datapull('IBM').index[0])
+#df[['open', 'high', 'low', 'close']].plot()
+#print (df)

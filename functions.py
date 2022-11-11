@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from users import User
 from stock import Stock
+from datapull import*
 
 
 def create_user(username):
@@ -18,4 +19,16 @@ def buy(user, user_stock_name, stock_price, stock_purchase_date, user_stock_quan
     
     #Oppdater brukerens balanse
     user.balance -= stock_price * user_stock_quantity
+    
+def plot_stock_performance(stock_name, purchase_date):
+    df = datapull(stock_name)
+    df_x = str(df.index[:])
+    pos = df_x.find('2022-11-10 16:15:00')
+    print(pos)
+    #df_purchase_date = df[df.index[] >= purchase_date]
+    #df_dates = str(df.index[:])
+    #print(df_dates)
+    #df['close'].plot()
+    
+plot_stock_performance("IBM", "123")
     
