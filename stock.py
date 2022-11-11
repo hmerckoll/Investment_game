@@ -11,6 +11,11 @@ class Stock():
         self.stock_name = stock_name
 
         
-    def get_price(self):
-        df = datapull()[self.stock_name]
-        self.closing_price
+    def get_lastest_stock_price(self):
+        self.latest_stock_price = datapull(self.stock_name)['close'][0]
+        return self.latest_stock_price
+    
+    def get_stock_purchasedate(self):
+        self.stock_purchasedate = datapull(self.stock_name).index[0]
+        return self.stock_purchasedate
+    

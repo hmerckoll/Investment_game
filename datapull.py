@@ -38,6 +38,6 @@ def datapull(input_stock):
     
     return df
         
-#datapull()
 
-
+#print(datapull('IBM'))
+#print(datapull('IBM').index[0])

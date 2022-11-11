@@ -8,3 +8,19 @@ MVP:
 4) Hent data basert på riktig akjse
 5) Legg til askjepris klassen stock
 6) 
+
+
+MVP funksjonalitet
+1) En bruker opprettes basert på tekstinnput
+2) Brukeren får tilbudet om å kjøpe en valgfri aksje og deretter antall av aksjen
+3) Aksjedata hentes fra API (siste tilgjengelige sluttpris og dato), og brukerens portefølje(kostpris, aksjenavn og antall askjer) og balanse oppdateres
+4) Print brukeren og brukerens portefølje og balanse
+
+Investment_Game_v1
+1) En bruker opprettes basert på navn
+1.1) Sjekk om brukeren eksisterer
+1.1.1) Hvis brukeren allerede eksisterer, hent balanse 
+1.1.2) Hvis brukeren ikke eksisterer, be om balanse
+2) Brukeren får tilbudet om å kjøpe en valgfri aksje og deretter antall av aksjen
+3) Aksjedata hentes fra API (siste tilgjengelige sluttpris og dato), og brukerens portefølje oppdateres
+4) Print brukeren og brukerens portefølje og balanse
