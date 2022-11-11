@@ -3,8 +3,8 @@
 
 MVP:
 1) Lag en klasse for brukere, som tar navn og beholdning
-2) Lag en klasse for ordre, som tar brukeren fra klassen brukere
-3) Lag en funksjon for klassen ordre som lar brukeren kjøpe en aksje for en sum
+2) Lag en klasse for stock
+3) Lag en funksjon er for kjøp/salg
 4) Hent data basert på riktig akjse
-5) Legg til askjepris klassen ordre
+5) Legg til askjepris klassen stock
 6) 
