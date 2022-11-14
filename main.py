@@ -10,10 +10,22 @@ from users import User
 from stock import Stock
 from functions import *
 from database import *
+from tkinter import * 
+BACKGROUND_COLOR = "#B1DDC6"
 
 users = get_database()
 
-if __name__ == '__main__':        
+if __name__ == '__main__':  
+
+    #------------------------------UI setup---------------------------
+    window = Tk()
+    window.title("Investment game")
+    window.configure(padx = 50, pady = 50, bg = BACKGROUND_COLOR)
+
+    canvas = Canvas(width = 800, height = 526, bg = BACKGROUND_COLOR, highlightthickness=0)
+    
+    window.mainloop()  
+    
 #1) En bruker opprettes basert på tekstinnput
     while True:
         username = input('Enter the username: ')
@@ -66,3 +78,9 @@ if __name__ == '__main__':
 
 #5) Oppdatere databasen
     update_database(users)
+    
+
+    
+
+
+

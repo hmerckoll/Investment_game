@@ -30,5 +30,5 @@ def get_stock_return(stock_name, purchase_price, latest_price):
     stock_return = round(((latest_price-purchase_price)/purchase_price)*100,2)
     print(f"Your stock return for the period is: {stock_return}%.")
     
-plot_stock_performance("IBM", "2022-11-01")
+#plot_stock_performance("IBM", "2022-11-01")
     
