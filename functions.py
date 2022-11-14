@@ -2,6 +2,7 @@
 from users import User
 from stock import Stock
 from datapull import*
+import matplotlib.pyplot as plt
 
 
 
@@ -19,12 +20,13 @@ def buy(user, user_stock_name, stock_price, stock_purchase_date, user_stock_quan
     user.portfolio[user_stock_name]['Cost_price'] = stock_price * user_stock_quantity
     
     #Oppdater brukerens balanse
-    user.balance -= stock_price * user_stock_quantity
+    user.balance -= round(stock_price * user_stock_quantity,2)
     
 def plot_stock_performance(stock_name, purchase_date):
     df = datapull(stock_name)
     df = df.iloc[::-1]
     df["close"].loc[purchase_date:].plot()
+
     
 def get_stock_return(stock_name, purchase_price, latest_price):
     stock_return = round(((latest_price-purchase_price)/purchase_price)*100,2)

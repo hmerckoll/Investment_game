@@ -25,7 +25,7 @@ if __name__ == '__main__':
         else:
             user = create_user(username)
             users[user.user_name] = user
-        print(f'Hello {user.user_name}, your current balance is: {user.balance}. Good luck :D')
+        print(f'Hello {user.user_name}, your current balance is: {user.balance}$. Good luck :D')
 
 #2) Brukeren får tilbudet om å kjøpe en valgfri aksje og deretter antall av aksjen
         #Initier aksjen
@@ -66,13 +66,13 @@ if __name__ == '__main__':
             continue
 
         
-        print(f' Your current balance is: {user.balance}')
+        print(f' Your current balance is: {user.balance}$')
         
         #Oppdater bruker i databasen (users)
         users[user.user_name] = user.__dict__
         
         # Sjekke om brukeren ønsker å fortsette
-        x = input("Do you want to continue investing? Y/N: ")
+        x = input("Do you want to continue? Y/N: ")
         if x == "N":
             break
         else:
