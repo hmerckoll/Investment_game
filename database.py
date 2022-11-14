@@ -18,7 +18,4 @@ def get_database():
         #print(type(dict2))
         return dict2
 
-
-#update_database({'k':4}) 
-#print(get_database())
     

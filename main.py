@@ -10,7 +10,6 @@ from users import User
 from stock import Stock
 from functions import *
 from database import *
-from tkinter import * 
 
 
 users = get_database()
@@ -26,28 +25,19 @@ if __name__ == '__main__':
         else:
             user = create_user(username)
             users[user.user_name] = user
-        print(f'Hello {user.user_name}, you\'r current balance is: {user.balance}. Good luck :D')
+        print(f'Hello {user.user_name}, your current balance is: {user.balance}. Good luck :D')
 
 #2) Brukeren får tilbudet om å kjøpe en valgfri aksje og deretter antall av aksjen
         #Initier aksjen
-        #user_stock_name = input('Enter stock name: ')
         action = input('Choose buy or performance: ')
         
-        #if action != "plot":
-         #   user_stock_quantity = int(input('Enter stock quantity: '))
-        
-        #stock = Stock(user_stock_name)
-        
 #3) Aksjedata hentes fra API (siste tilgjengelige sluttpris og dato), og brukerens portefølje(kostpris, aksjenavn, kjøpsdato og antall askjer) og balanse oppdateres
-        #Hent aksjepris
-        #stock_price = float(stock.get_lastest_stock_price())
-        #stock_purchase_date = stock.get_stock_purchasedate()
-        #stock_price_performance = stock.get_latest_stock_price_performance()
         
         if action == 'buy':
             #4) Oppdatere brukeren og brukerens portefølje og balanse
-            user_stock_name = input('Enter stock name: ')
+            user_stock_name = input('Choose between: IBM, MSFT or TSCO.LON to buy: ')
             user_stock_quantity = int(input('Enter stock quantity: '))
+            
             stock = Stock(user_stock_name)
             stock_price = float(stock.get_lastest_stock_price())
             stock_purchase_date = stock.get_stock_purchasedate()
@@ -87,13 +77,11 @@ if __name__ == '__main__':
             break
         else:
             continue
-        
+    
 
 #5) Oppdatere databasen
     update_database(users)
     
-#Find the winner
-#winner = 
     
 
     

@@ -1,1 +1,1 @@
-{"k": 4, "Hans": {"user_name": "Hans", "balance": -2743.7999999999997, "portfolio": {"IBM": {"Purchase_date": "2022-10-28", "Purchase_price": 138.51, "Purchase_quantity": 10, "Cost_price": 1385.1}, "MSFT": {"Purchase_date": "2022-10-28", "Purchase_price": 235.87, "Purchase_quantity": 10, "Cost_price": 2358.7}}}, "Vilde": {"user_name": "Vilde", "balance": 8614.9, "portfolio": {"IBM": {"Purchase_date": "2022-10-28", "Purchase_price": 138.51, "Purchase_quantity": 10, "Cost_price": 1385.1}}}}
+{}

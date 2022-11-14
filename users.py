@@ -11,8 +11,5 @@ class User():
         self.balance = balance
         self.portfolio = portfolio
         
-#    def orders(self, quantity):
-#        self.quantity = quantity
-#        self.cash -= self.quantity
         
     

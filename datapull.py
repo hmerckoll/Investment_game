@@ -13,7 +13,7 @@ dataframes ={}
 
 def datapull(input_stock):
         
-    URL = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={input_stock}&apikey=demo"
+    URL = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={input_stock}&outputsize=full&apikey=demo"
     
     response = requests.get(URL)
     
@@ -38,8 +38,3 @@ def datapull(input_stock):
     
     return df
         
-
-df = datapull('TSCO')
-#print(datapull('IBM').index[0])
-#df['close'].plot()
-print (df)
