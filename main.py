@@ -32,19 +32,21 @@ if __name__ == '__main__':
         
         if action != "plot":
             user_stock_quantity = int(input('Enter stock quantity: '))
-            stock = Stock(user_stock_name)
+            
+        stock = Stock(user_stock_name)
         
 #3) Aksjedata hentes fra API (siste tilgjengelige sluttpris og dato), og brukerens portefølje(kostpris, aksjenavn, kjøpsdato og antall askjer) og balanse oppdateres
         #Hent aksjepris
-            stock_price = float(stock.get_lastest_stock_price())
-            stock_purchase_date = stock.get_stock_purchasedate()
+        stock_price = float(stock.get_lastest_stock_price())
+        stock_purchase_date = stock.get_stock_purchasedate()
+        stoc_price_performance = stock.get_latest_stock_price_performance()
         
         if action == 'buy':
             #4) Oppdatere brukeren og brukerens portefølje og balanse
             buy(user, user_stock_name, stock_price, stock_purchase_date, user_stock_quantity)
         elif action == "plot":
             stock_plot = plot_stock_performance(user_stock_name, user.portfolio[user_stock_name]["Purchase_date"])
-            get_stock_return(user_stock_name, user.portfolio[user_stock_name]["Purchase_price"])
+            get_stock_return(user_stock_name, user.portfolio[user_stock_name]["Purchase_price"], stoc_price_performance)
         else:
             continue
 

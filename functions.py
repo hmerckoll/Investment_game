@@ -23,11 +23,12 @@ def buy(user, user_stock_name, stock_price, stock_purchase_date, user_stock_quan
     
 def plot_stock_performance(stock_name, purchase_date):
     df = datapull(stock_name)
-    df["close"].loc[:purchase_date].plot()
+    df = df.iloc[::-1]
+    df["close"].loc[purchase_date:].plot()
     
 def get_stock_return(stock_name, purchase_price, latest_price):
-    stock_return = ((latest_price-purchase_price)/purchase_price)*100
+    stock_return = round(((latest_price-purchase_price)/purchase_price)*100,2)
     print(f"Your stock return for the period is: {stock_return}%.")
     
-#plot_stock_performance("IBM", "2022-11-01")
+plot_stock_performance("IBM", "2022-11-01")
     
