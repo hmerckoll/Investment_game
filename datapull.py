@@ -13,7 +13,7 @@ dataframes ={}
 
 def datapull(input_stock):
         
-    URL = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={input_stock}&interval=5min&outputsize=full&apikey=demo"
+    URL = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={input_stock}&apikey=demo"
     
     response = requests.get(URL)
     
@@ -22,11 +22,11 @@ def datapull(input_stock):
     
     raw_data = response.json()
     
-    data = raw_data['Time Series (5min)']
+    data = raw_data['Time Series (Daily)']
     df = pd.DataFrame(data).T.apply(pd.to_numeric)
     
     # Next we parse the index to create a datetimeindex
-    df.index = pd.DatetimeIndex(df.index)
+    #df.index = pd.DatetimeIndex(df.index)
     
     # Let's fix the column names by chopping off the first 3 characters
     df.rename(columns=lambda s: s[3:], inplace=True)
@@ -41,5 +41,5 @@ def datapull(input_stock):
 
 #df = datapull('IBM')
 #print(datapull('IBM').index[0])
-#df[['open', 'high', 'low', 'close']].plot()
+#df['close'].plot()
 #print (df)

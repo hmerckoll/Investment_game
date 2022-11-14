@@ -4,6 +4,7 @@ from stock import Stock
 from datapull import*
 
 
+
 def create_user(username):
     user_balance = float(input('Enter your balance: '))
     user = User(username, user_balance)
@@ -22,13 +23,11 @@ def buy(user, user_stock_name, stock_price, stock_purchase_date, user_stock_quan
     
 def plot_stock_performance(stock_name, purchase_date):
     df = datapull(stock_name)
-    df_x = str(df.index[:])
-    pos = df_x.find('2022-11-10 16:15:00')
-    print(pos)
-    #df_purchase_date = df[df.index[] >= purchase_date]
-    #df_dates = str(df.index[:])
-    #print(df_dates)
-    #df['close'].plot()
+    df["close"].loc[:purchase_date].plot()
     
-plot_stock_performance("IBM", "123")
+def get_stock_return(stock_name, purchase_price, latest_price):
+    stock_return = ((latest_price-purchase_price)/purchase_price)*100
+    print(f"Your stock return for the period is: {stock_return}%.")
+    
+#plot_stock_performance("IBM", "2022-11-01")
     
