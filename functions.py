@@ -32,3 +32,13 @@ def get_stock_return(stock_name, purchase_price, latest_price):
     
 #plot_stock_performance("IBM", "2022-11-01")
     
+def get_portfolio_return(portfolio):
+    portfolio_cost_price = 0
+    portfolio_current_value = 0
+    for stock in portfolio.keys():
+        portfolio_cost_price += portfolio[stock]['Cost_price']
+        share = Stock(stock)
+        portfolio_current_value += share.get_latest_stock_price_performance()*portfolio[stock]['Purchase_quantity']
+    portfolio_return = round(((portfolio_current_value-portfolio_cost_price)/portfolio_cost_price)*100,2)
+    print(f"Your portfolio return for the period is: {portfolio_return}%.")
+    

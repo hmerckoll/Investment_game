@@ -11,21 +11,12 @@ from stock import Stock
 from functions import *
 from database import *
 from tkinter import * 
-BACKGROUND_COLOR = "#B1DDC6"
+
 
 users = get_database()
 
 if __name__ == '__main__':  
 
-    #------------------------------UI setup---------------------------
-    window = Tk()
-    window.title("Investment game")
-    window.configure(padx = 50, pady = 50, bg = BACKGROUND_COLOR)
-
-    canvas = Canvas(width = 800, height = 526, bg = BACKGROUND_COLOR, highlightthickness=0)
-    
-    window.mainloop()  
-    
 #1) En bruker opprettes basert på tekstinnput
     while True:
         username = input('Enter the username: ')
@@ -35,42 +26,64 @@ if __name__ == '__main__':
         else:
             user = create_user(username)
             users[user.user_name] = user
-        print(user.user_name, user.balance)
+        print(f'Hello {user.user_name}, you\'r current balance is: {user.balance}. Good luck :D')
 
 #2) Brukeren får tilbudet om å kjøpe en valgfri aksje og deretter antall av aksjen
         #Initier aksjen
-        user_stock_name = input('Enter stock name: ')
-        action = input('Choose buy, sell or plot: ')
+        #user_stock_name = input('Enter stock name: ')
+        action = input('Choose buy or performance: ')
         
-        if action != "plot":
-            user_stock_quantity = int(input('Enter stock quantity: '))
-            
-        stock = Stock(user_stock_name)
+        #if action != "plot":
+         #   user_stock_quantity = int(input('Enter stock quantity: '))
+        
+        #stock = Stock(user_stock_name)
         
 #3) Aksjedata hentes fra API (siste tilgjengelige sluttpris og dato), og brukerens portefølje(kostpris, aksjenavn, kjøpsdato og antall askjer) og balanse oppdateres
         #Hent aksjepris
-        stock_price = float(stock.get_lastest_stock_price())
-        stock_purchase_date = stock.get_stock_purchasedate()
-        stoc_price_performance = stock.get_latest_stock_price_performance()
+        #stock_price = float(stock.get_lastest_stock_price())
+        #stock_purchase_date = stock.get_stock_purchasedate()
+        #stock_price_performance = stock.get_latest_stock_price_performance()
         
         if action == 'buy':
             #4) Oppdatere brukeren og brukerens portefølje og balanse
+            user_stock_name = input('Enter stock name: ')
+            user_stock_quantity = int(input('Enter stock quantity: '))
+            stock = Stock(user_stock_name)
+            stock_price = float(stock.get_lastest_stock_price())
+            stock_purchase_date = stock.get_stock_purchasedate()
+            
+            #check if user has sufficent funds
+            if stock_price*user_stock_quantity > user.balance:
+                print('You don\'t have enough funds to execute this transaction')
+                users[user.user_name] = user.__dict__
+                continue
+            
             buy(user, user_stock_name, stock_price, stock_purchase_date, user_stock_quantity)
-        elif action == "plot":
-            stock_plot = plot_stock_performance(user_stock_name, user.portfolio[user_stock_name]["Purchase_date"])
-            get_stock_return(user_stock_name, user.portfolio[user_stock_name]["Purchase_price"], stoc_price_performance)
+            
+        elif action == "performance":
+            if user.portfolio == {}:
+                print('You don\'t have any stock performance')
+                users[user.user_name] = user.__dict__
+                continue
+            
+            #Plot perfromance for each stock in the portfolio
+            for stock in user.portfolio.keys():
+                stock_plot = plot_stock_performance(stock, user.portfolio[stock]["Purchase_date"])
+                #stock_plot.legend()
+                
+            get_portfolio_return(user.portfolio)
         else:
             continue
 
         
-        print(user.balance)
+        print(f' Your current balance is: {user.balance}')
         
         #Oppdater bruker i databasen (users)
         users[user.user_name] = user.__dict__
         
         # Sjekke om brukeren ønsker å fortsette
-        x = input("Ferdig? Y/N: ")
-        if x == "Y":
+        x = input("Do you want to continue investing? Y/N: ")
+        if x == "N":
             break
         else:
             continue
@@ -78,6 +91,9 @@ if __name__ == '__main__':
 
 #5) Oppdatere databasen
     update_database(users)
+    
+#Find the winner
+#winner = 
     
 
     

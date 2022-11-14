@@ -7,9 +7,15 @@ Created on Thu Nov 10 12:48:53 2022
 
 from tkinter import *
 from tkinter import ttk
-root = Tk()
-frm = ttk.Frame(root, padding=10)
-frm.grid()
-ttk.Label(frm, text="Hello World!").grid(column=0, row=0)
-ttk.Button(frm, text="Quit", command=root.destroy).grid(column=1, row=0)
-root.mainloop()
+
+if __name__ == '__main__':
+    window = Tk()
+    
+    window.title('Investment Game')
+    
+    window.configure(background = 'light green')
+    
+    test_input = Entry(window, 'Test')
+    
+    window.mainloop()
+   

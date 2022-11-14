@@ -8,7 +8,7 @@ Created on Thu Nov 10 12:38:15 2022
 import requests
 import pandas as pd
 
-stocks = ['IBM', 'MSFT']
+#stocks = ['IBM', 'MSFT']
 dataframes ={}
 
 def datapull(input_stock):
@@ -39,7 +39,7 @@ def datapull(input_stock):
     return df
         
 
-#df = datapull('IBM')
+df = datapull('TSCO')
 #print(datapull('IBM').index[0])
 #df['close'].plot()
-#print (df)
+print (df)
